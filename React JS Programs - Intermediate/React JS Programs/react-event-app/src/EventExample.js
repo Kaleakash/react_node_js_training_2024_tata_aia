@@ -8,6 +8,10 @@ let handleTextField=(event)=>{
     //console.log(event)
     console.log(event.target.name+" "+event.target.value)
 }
+let handleSubmit=(event)=> {
+    //event.preventDefault(); // it disable action 
+    console.log("submit event fired")
+}
     return(
         <div>
             <h3>Event Example</h3>
@@ -17,9 +21,11 @@ let handleTextField=(event)=>{
     console.log(e)
 }}/>
 <hr/>
-<form>
+<form onSubmit={handleSubmit}>
     <label>Name</label>
     <input type="text" name="ename" onChange={handleTextField}/><br/>
+    <input type="submit" value="Submit Info"/>
+    <input type="button" value="Click Here"/>
 </form>
         </div>
     )
