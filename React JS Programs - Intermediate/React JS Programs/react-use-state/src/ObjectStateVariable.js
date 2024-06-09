@@ -16,7 +16,7 @@ let handleEmployeeInfo2=(event)=> {
     //setEmployee(104)          error 
     //setEmployee({name:"Ajay"});  // updating one property remaining property lose
    //setEmployee({id:103,name:"Ajay",salary:38000});  // update all property
-   setEmployee({...employee,name:"Ajay"}); // partial object ...previousobject,property:value
+   setEmployee({...employee,id:103}); // partial object ...previousobject,property:value
     console.log(employee)
 }
 return(
