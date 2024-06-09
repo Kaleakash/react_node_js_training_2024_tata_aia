@@ -37,7 +37,6 @@ useEffect(()=> {
 },[])
 
 
-
     if(loading){
         return <h2>Data Loading......</h2>
     }
