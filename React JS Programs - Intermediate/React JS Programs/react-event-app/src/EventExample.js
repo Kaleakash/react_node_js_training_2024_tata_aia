@@ -9,7 +9,8 @@ let handleTextField=(event)=>{
     console.log(event.target.name+" "+event.target.value)
 }
 let handleSubmit=(event)=> {
-    //event.preventDefault(); // it disable action 
+    
+    event.preventDefault(); // it disable action 
     console.log("submit event fired")
 }
     return(
