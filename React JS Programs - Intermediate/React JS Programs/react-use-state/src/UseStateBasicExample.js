@@ -10,7 +10,7 @@ function UseStateBasicExample() {
 //console.log(fun)
 let count = 10;         // normal variable 
 let [name,setName]=useState("Ravi");// it state variable 
-let [n,setNumber]=useState(100);
+let [n,setNumber]=useState(10000);
 let handleButton=()=> {     // if we want to do any changes we need 2nd parameter then it will re-render.
     count=count+1
     name = "Mr "+name;
