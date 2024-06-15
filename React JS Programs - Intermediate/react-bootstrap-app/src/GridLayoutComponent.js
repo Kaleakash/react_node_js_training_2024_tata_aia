@@ -36,6 +36,32 @@ const styleProps = {"border":"1px red solid"}
                 </div>
             </div>
 
+            <div className="row">
+                <div className="col-2" style={styleProps}>
+                    4 columns
+                </div>
+                <div className="col" style={styleProps}>
+                    4 columns
+                </div>
+                <div className="col" style={styleProps}>
+                    4 columns
+                </div>
+
+                <div className="col" style={styleProps}>
+                    4 columns
+                </div>
+                <div className="col" style={styleProps}>
+                    4 columns
+                </div>
+                <div className="col" style={styleProps}>
+                    4 columns
+                </div>
+
+                <div className="col" style={styleProps}>
+                    4 columns
+                </div>
+
+            </div>
 
             <div className="row">
                 <div className="col" style={styleProps}>
