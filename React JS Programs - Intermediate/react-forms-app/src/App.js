@@ -1,13 +1,14 @@
 
-import SimpleForm from './SimpleForm';
+
+import UserForm from './UserForm';
 
 
 
 function App() {
   return (
     <div className="App">
-      <SimpleForm></SimpleForm>
-     
+      {/* <SimpleForm></SimpleForm> */}
+     <UserForm></UserForm>
     </div>
   );
 }
