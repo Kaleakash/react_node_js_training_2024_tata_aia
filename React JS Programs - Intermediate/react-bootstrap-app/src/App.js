@@ -1,4 +1,5 @@
 import BasicComponent from './BasicComponent';
+import CaruselComponent from './CarouselComponent';
 import GridLayoutComponent from './GridLayoutComponent';
 import GridLayoutWithDevice from './GridLayoutWithDevice';
 import Login from './Login';
@@ -11,7 +12,8 @@ function App() {
      {/* <BasicComponent></BasicComponent> */}
      {/* <Login></Login> */}
      {/* <GridLayoutComponent></GridLayoutComponent> */}
-     <GridLayoutWithDevice></GridLayoutWithDevice>
+     {/* <GridLayoutWithDevice></GridLayoutWithDevice> */}
+     <CaruselComponent></CaruselComponent>
     </div>
   );
 }
