@@ -1,6 +1,7 @@
 div{
     font-family: 'Times New Roman', Times, serif;
     font-size: 25pt;
+    color: aqua;
 }
 p{
     color: red;
@@ -15,3 +16,15 @@ p{
 .pClass3{
     background-color:pink ;
 }
+
+section div{
+    border: 1px red solid;
+    color: blue;
+    width: 200px;
+    height: 300px;
+    display: inline-block;
+    padding: 10px;
+    margin: 20px;
+}
+
+
