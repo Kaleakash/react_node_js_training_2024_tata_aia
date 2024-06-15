@@ -1,0 +1,17 @@
+div{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25pt;
+}
+p{
+    color: red;
+}
+
+.pClass1{
+    color: blue;
+}
+.pClass2{
+    color: gold;
+}
+.pClass3{
+    background-color:pink ;
+}

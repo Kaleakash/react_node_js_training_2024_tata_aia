@@ -10,7 +10,7 @@ return(
         <img src="akash.jpg" width="200px" height="200px"/>
         <img src={imagename} width="200px" height="200px"></img>
         <img src={obj.iname} width="200px" height="200px"/>
-<p style={styleInfo}>This is one of trainer and developer blogs {obj.marks.map(n=><li>{n}</li>)}</p>
+<p style={styleInfo}>This is one of the trainer and developer blogs {obj.marks.map(n=><li>{n}</li>)}</p>
 <h3 style={styleInfo}> <span>{obj.fname} - {obj.designation}</span> Full Stack Trainer</h3>
 
     </section>
