@@ -23,9 +23,10 @@ loadProductInfo();
 
 let handleSubmit=(event)=> {
     event.preventDefault();
-    console.log(productForm)
+    //console.log(productForm)
     // post method takes two parameter 
     //1st parameter url and 2nd parameter json data. 
+    if(buttonValue=="Add Product"){
     let result = products.find(p=>p.id==productForm.id);
     if(result==undefined){
     axios.post("http://localhost:3000/products",productForm).
@@ -33,6 +34,15 @@ let handleSubmit=(event)=> {
     }else {
         alert("product id must be unique")
     }
+    }else {
+        // updating existing records 
+     //1st parameter url append that product id and 2nd parameter json data.    
+    axios.put("http://localhost:3000/products/"+productForm.id,productForm).
+    then(result=>{console.log(result); setMessage(result.data)}).catch(error=>console.log(error))
+    setButtonValue("Add Product")
+    setFlag(false);    
+    }
+    reset();
 }
 
 let handleDelete=(id)=> {

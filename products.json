@@ -2,8 +2,13 @@
   "products": [
     {
       "id": "100",
-      "pname": "TV",
-      "price": 56000
+      "pname": "Sony Tv",
+      "price": "65000"
+    },
+    {
+      "id": "102",
+      "pname": "Pen Drive",
+      "price": "1800"
     }
   ]
 }
