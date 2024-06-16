@@ -44,6 +44,11 @@ let handleDelete=(id)=> {
     }).catch(error=>console.log(error))
 }
 
+let reset = (event)=> {
+    setProductForm({id:"",pname:"",price:""});
+}
+
+
 let handleUpdate=(product)=> {
     console.log(product)
 }
@@ -95,7 +100,9 @@ let handleUpdate=(product)=> {
                     <input type="submit" value={buttonValue} className="btn btn-outline-success"/>
                 </div>
                 <div className="col-2">
-                   <input type="reset" value="reset" className="btn btn-outline-info"/>
+                   <input type="reset" value="reset" className="btn btn-outline-info"
+                   onClick={reset}
+                   />
                 </div>
            </div>
             </form>
