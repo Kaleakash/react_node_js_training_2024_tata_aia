@@ -40,6 +40,8 @@ let handleSubmit=(event)=> {
 
 let handleDelete = (event,pid)=> {
     console.log(pid)
+    let filterProduct = products.filter(p=>p.pid!=pid);// remove pid record from array and generate new array
+    setProducts(filterProduct);
 }
 
 let handleUpdate= (event,product)=> {
