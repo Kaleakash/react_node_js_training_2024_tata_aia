@@ -48,9 +48,12 @@ let reset = (event)=> {
     setProductForm({id:"",pname:"",price:""});
 }
 
-
+//axios.post("",{},)
 let handleUpdate=(product)=> {
-    console.log(product)
+    //console.log(product)
+    setProductForm(product);
+    setButtonValue("Update Record")
+    setFlag(true);
 }
     return(
         <div className="container">
@@ -68,7 +71,7 @@ let handleUpdate=(product)=> {
                 <div className="col-2">
             <input type="number" className="form-control" name="productForm.id"
             onChange={(event)=>setProductForm(previousProduct=> { return {...previousProduct,id:event.target.value} } )}
-            required value={productForm.pid} readOnly={flag}/>
+            required value={productForm.id} readOnly={flag}/>
                 </div>
            </div>
 
