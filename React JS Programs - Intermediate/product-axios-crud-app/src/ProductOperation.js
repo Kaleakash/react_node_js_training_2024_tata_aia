@@ -1,12 +1,10 @@
 import axios from "axios";
-
 import { useEffect, useState } from "react";
 
 function ProductOperation() {
+
 let [products,setProducts]=useState([{}]);  // to store product array 
-
 let [msg,setMessage]=useState("");
-
 let [buttonValue,setButtonValue]=useState("Add Product");
 let [flag,setFlag]=useState(false);
 let [productForm,setProductForm]=useState({});  // old one product details receive from form 
@@ -37,7 +35,18 @@ let handleSubmit=(event)=> {
     }
 }
 
+let handleDelete=(id)=> {
+    //console.log(id)
+    // path param technique passing id through url
+    axios.delete("http://localhost:3000/products/"+id).then(result=>{
+        console.log(result)
+        setMessage(result.data)
+    }).catch(error=>console.log(error))
+}
 
+let handleUpdate=(product)=> {
+    console.log(product)
+}
     return(
         <div className="container">
         <div className="row">   
@@ -92,12 +101,6 @@ let handleSubmit=(event)=> {
             </form>
             <hr/>
 
-
-
-
-
-
-
             <h3>Product Management System using Axios</h3>
 
             <table className="table table-striped">
@@ -106,6 +109,8 @@ let handleSubmit=(event)=> {
                         <th>PId</th>
                         <th>PName</th>
                         <th>Price</th>
+                        <th>Delete</th>
+                        <th>Update</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -114,6 +119,18 @@ let handleSubmit=(event)=> {
                         <td>{product.id}</td>
                         <td>{product.pname}</td>
                         <td>{product.price}</td>
+
+                        <td>
+                            <a onClick={()=>handleDelete(product.id)}>
+                                <img src="delete.png" width="50px" height="50px"/>
+                            </a>
+                        </td>
+
+                        <td>
+                            <a onClick={()=>handleUpdate(product)}>
+                                <img src="update.png" width="50px" height="50px"/>
+                            </a>
+                        </td>
                     </tr>
                     )}
                 </tbody>
