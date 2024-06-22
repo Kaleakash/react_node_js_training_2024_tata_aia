@@ -10,6 +10,7 @@ let emp = useContext(ChildContext);
             <h3>Child8 Component</h3>
             <p>Admin name in child8 component using context {data}</p>
             <p>Id is {emp.id} name name {emp.name}</p>
+            <input type="button" value="Child8 component button" onClick={()=>emp.hello("Child8")}/>
             <Child9></Child9>
         </div>
     )
