@@ -5,6 +5,7 @@ import { RootContext } from "./Context";
 
 function Parent() {
 let [admin,setAdmin]=useState("Admin");
+//let [data,setData]=useState([{}]);
     return(
         <RootContext.Provider value={admin}>
             <div>
