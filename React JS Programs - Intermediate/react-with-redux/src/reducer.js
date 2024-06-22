@@ -1,5 +1,5 @@
 let initialState = {
-    counter:0                     // number type. it can be string, object or array type 
+    counter:100                     // number type. it can be string, object or array type 
 }
 
 function reducer(state=initialState,action){
