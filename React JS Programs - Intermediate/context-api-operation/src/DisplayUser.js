@@ -14,7 +14,7 @@ let {users}=useContext(UserContext)
             <h4>Display User</h4>
             {users.map((u,index)=>
             
-            <li key={index}>Name is {u.name} Age is {u.age}
+            <li key={index}>FullName is {u.name} Age is {u.age}
                 <DeleteUser index={index}></DeleteUser>   
             </li>)}
         </div>
