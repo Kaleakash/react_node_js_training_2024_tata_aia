@@ -9,7 +9,7 @@ let [id,setId]=useState(100)
 let [name,setName]=useState("Raj")
 
 let hello= (info)=> {
-    console.log("event fired"+info)
+    console.log("event fired "+info)
 }
     return(
         <ChildContext.Provider value={{id,name,hello}}>
