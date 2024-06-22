@@ -5,7 +5,7 @@ let initialState = {
 function reducer(state=initialState,action){
 
     // base upon action we can do the changes on state variable. 
-
+    console.log(action)
     return state;
 }
 

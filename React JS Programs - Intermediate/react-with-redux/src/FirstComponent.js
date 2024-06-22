@@ -9,6 +9,7 @@ let m = useSelector(gs=>gs.counter)
         <div>
             <h3>First Component</h3>
             <p>Local state variable part of First Component is {n}</p>
+    <input type="button" value="Decrement local state variable" onClick={()=>setN(n-1)}/>
             <p>Global state variable part of redux store is {m}</p>
             <SecondComponent></SecondComponent>
         </div>
