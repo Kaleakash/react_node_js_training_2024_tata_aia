@@ -3,7 +3,7 @@ import App from './App';
 
 //describe("All Testing File",()=> {
 
-  test('renders learn react link', () => {
+  it('renders learn react link', () => {
     render(<App />);
     const linkElement = screen.getByText(/learn react/i);
     //screen.fin
