@@ -1,5 +1,6 @@
 let initialState = {
-    counter:100                     // number type. it can be string, object or array type 
+    counter:100,                     // number type. it can be string, object or array type 
+    employees:[{id:100,name:"Ravi",age:21},{id:101,name:"Raju",age:26}]
 }
 
 function reducer(state=initialState,action){
@@ -29,6 +30,9 @@ function reducer(state=initialState,action){
         // console.log(state.counter)      // local update not re-render 
         //return state.counter+1;
         return {...state,counter:state.counter-action.payload}     // 1st old initial state, 2nd property state counter, 3rd parameter value
+    }
+    if(action.type=="ADD_EMPLOYEE"){
+        return {...state,employees:state.employees.concat(action.payload)}
     }
     return state;
 
