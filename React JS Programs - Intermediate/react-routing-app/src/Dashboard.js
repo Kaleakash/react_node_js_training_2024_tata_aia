@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function Dashboard() {
 let navigate = useNavigate();
@@ -16,6 +16,17 @@ let handleLogout= ()=> {
             <input type="button" value="logout" onClick={handleLogout}/>
             </h2>
             <h4>Welcome user {user}</h4>
+
+            <div>
+                <Link to="addproduct">Add Product</Link> |
+                <Link to="viewproduct">View Product</Link> |
+                <Link to="deleteproduct">Delete Product</Link> |
+                <Link to="updateproduct">Update Product</Link>
+            </div>
+                <hr/>
+            <div>
+                <Outlet></Outlet>
+            </div>
         </div>
     )
 
