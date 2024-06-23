@@ -17,12 +17,17 @@ let couterHandle = ()=> {
 }
 let handleSubmit=(event)=> {
     event.preventDefault();
-    //console.log(emailref.current); 
+    //console.log(emailref.current);// DOM reference  
     //console.log(emailref.current.value)
     //console.log(passref.current.value);
     let emailid = emailref.current.value
     let password = passref.current.value
+    // we can pass this information to database using rest api. 
+    // axios.post(url,{emailid,password}).then().catch();
     if(emailid=="akash@gmail.com" && password=="123"){
+            
+            sessionStorage.setItem("user",emailid); // emailid can be dynamic 
+            sessionStorage.setItem("token","tokenValue");
             alert("success")
             navigate("/home");
     }else {
