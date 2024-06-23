@@ -1,0 +1,1 @@
+export let Feedback = ()=><div>Feedback</div>
