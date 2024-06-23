@@ -27,7 +27,7 @@ let handleSubmit=(event)=> {
     if(emailid=="akash@gmail.com" && password=="123"){
             
             sessionStorage.setItem("user",emailid); // emailid can be dynamic 
-            sessionStorage.setItem("token","tokenValue");
+            //sessionStorage.setItem("token","tokenValue");
             alert("success")
             navigate("/home");
     }else {
