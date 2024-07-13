@@ -1,33 +1,14 @@
-import { useEffect, useState } from "react";
+import useFetch from "./useFetch";
 import UserList from "./UserList";
 
 function UserListContainer() {
-let [users,setUsers]=useState([]);
-let [isLoading,setIsLoading]=useState(true);
+let [users,isLoading,setUsers]=useFetch();
 
 let deleteUser=(id)=> {
     console.log(id);
     let filterUser = users.filter(user=>user.id!=id);
     setUsers(filterUser);
 }
-useEffect(()=> {
-    setTimeout(()=> {
-        const loadUserInfo=()=>{
-            fetch("https://dummyjson.com/users").
-            then(res=>res.json()).
-            then(result=>{
-                
-                console.log(result.users)
-                setUsers(result.users)    
-            }).
-            catch(error=>console.log(error))
-        }
-        setIsLoading(false);
-        loadUserInfo();
-    },3000);
-   
-},[])
-
 return(
     <div>
         <h3>User Details</h3>
