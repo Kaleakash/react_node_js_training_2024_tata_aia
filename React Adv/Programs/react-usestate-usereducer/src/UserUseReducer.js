@@ -19,13 +19,14 @@ const reducer = (state,action)=> {
         }
         return state;
 }
+
 function UserUseReducer() {
 let [state,dispatch]=useReducer(reducer,initialState);  // 1st parameter reducer function and initial state. 
 let [currentUser,setCurrentUser]=useState({id:null,name:"",age:""}) 
 let addUser=(event)=> {
     event.preventDefault();
-    let tempUser = {id:Date.now(),name:currentUser.name,age:currentUser.age}
-    dispatch({type:"ADD_USER",payload:tempUser})
+    //let tempUser = 
+    dispatch({type:"ADD_USER",payload:{id:Date.now(),name:currentUser.name,age:currentUser.age}})
     setCurrentUser({id:null,name:"",age:""})
 }
 return(
