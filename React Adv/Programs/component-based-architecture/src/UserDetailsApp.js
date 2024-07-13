@@ -3,7 +3,8 @@ import usersInfo from './users';
 import UserList from "./UserList";
 
 function UserDetailsApp() {
-let [users,setUsers]=useState(usersInfo)
+let [users,setUsers]=useState(usersInfo)            // users hold array data. 
+
 let updateUser=(data)=> {
     //console.log("in User Details App event fired")
     console.log(data);

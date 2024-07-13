@@ -3,6 +3,7 @@ import { useState } from "react";
 function UserDetail({user,updateUser}) {
 let [isEditing,setEditing]=useState(false);
 let [formData,setFormData]=useState({name:"",age:"",city:""})
+
 let editUser=()=> {
     setFormData(user)
     setEditing(true);
@@ -18,7 +19,7 @@ let handleSubmit=(event)=> {
             {
               !isEditing?  
                 (
-                <div>
+                <div style={{"color":"red","backgroundColor":"yellow"}}>
                 <h4>User Info</h4>
                 <p>Id is {user.id} Name is {user.name} Age is {user.age} City is : {user.city}
                 <input type="button" value="Edit" onClick={()=>editUser(user)}/></p>

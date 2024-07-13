@@ -9,7 +9,7 @@ function UserList({users,updateUser}) {
             <ul>
             {
             users.map((u,index)=>
-                <UserDetail key={index} user={u} updateUser={updateUser}></UserDetail>
+              <li> <UserDetail key={index} user={u} updateUser={updateUser}></UserDetail></li>
             )
             }
             </ul>
