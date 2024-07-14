@@ -10,7 +10,7 @@ function App() {
   let[msg,setMessage]=useState("Welcome to React JS with HOC concept")
 
 
-  let TextComponentWithLowerCase = withLowerCase(TextComponents);
+  let TextComponentWithLowerCase = withLowerCase(TextComponents,'text');
   let TextComponentWithUpperCase = withUpperCase(TextComponents);
   let TextComponentWithSubString = withSubstring(TextComponents);
   
