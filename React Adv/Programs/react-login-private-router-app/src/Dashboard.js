@@ -1,11 +1,15 @@
+import Logout from "./Logout";
+import withPrivateRouterHOC from "./withPrivateRouterHOC";
+
 function Dashboard() {
 
 
     return(
         <div>
-            <h4>Dashboard Page</h4>
+            <h4>Welcome to Dashboard Page(private/protected page)</h4>
+            <Logout></Logout>
         </div>
     )
     }
     
-    export default Dashboard;
+    export default withPrivateRouterHOC(Dashboard);
