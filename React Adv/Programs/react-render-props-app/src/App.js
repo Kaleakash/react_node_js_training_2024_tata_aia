@@ -3,18 +3,19 @@ import './App.css';
 import SimpleComponent from './SimpleComponent';
 import MouseTracker from './MouseTracker';
 import Info from './Info';
+import DataFetch from './DataFecher';
 
 function App() {
   return (
     <div className="App">
      
-     <SimpleComponent render={(data)=>
+     {/* <SimpleComponent render={(data)=>
     
       <p>Value is {data}</p>
      
     }></SimpleComponent>
 
-    <MouseTracker render={(position)=> 
+    <MouseTracker render1={(position)=> 
     <div>
       Mouse Position x= {position.x} and y = {position.y}
     </div>
@@ -23,7 +24,30 @@ function App() {
 
     <hr/>
 
-    <Info></Info>
+    <Info></Info> */}
+    <DataFetch render={({data,loading,error})=>
+      {
+            if(loading){
+              return <h2>loading......</h2>
+            }
+            if(error){
+              return <h2>Error {error}</h2>
+            }
+            return(
+              <div>
+                <ul>
+                  {data.map((p,index)=>
+                    <li key={index}>
+                        <img src={p.image} width="100px" height="100px"/>
+                        <span>{p.title}: {p.price}</span>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            )
+      }
+    }>
+    </DataFetch>
     </div>
   );
 }
