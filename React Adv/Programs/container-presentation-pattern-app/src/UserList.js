@@ -1,7 +1,6 @@
 import User from "./User";
 
 function UserList({users,deleteUser}) {
-
 return(
     <div>
         <h2>All User Information</h2>
