@@ -48,6 +48,30 @@ function App() {
       }
     }>
     </DataFetch>
+    <hr/>
+    <DataFetch url="https://jsonplaceholder.typicode.com/todos" render={({data,loading,error})=>
+      {
+            if(loading){
+              return <h2>loading......</h2>
+            }
+            if(error){
+              return <h2>Error {error}</h2>
+            }
+            return(
+              <div>
+                <ul>
+                  {data.map((t,index)=>
+                    <li key={index}>
+                        <span>{t.id} ) {t.title} {t.completed?"True Result ":"False Result"}</span>
+                    </li>
+                  )}
+                </ul>
+              </div>
+            )
+      }
+    }>
+    </DataFetch>
+
     </div>
   );
 }
