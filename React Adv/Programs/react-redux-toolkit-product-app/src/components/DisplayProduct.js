@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
+import { storeOrders } from "../actions/ordersAction";
+import PlaceOrders from "./PlaceOrders";
 
 function DisplayProduct() {
 let dispatch = useDispatch();
 let products = useSelector(gs=>gs.products.productList);
 let loading = useSelector(gs=>gs.products.loading)
 let error = useSelector(gs=>gs.products.error)
+
 
     useEffect(()=> {
         dispatch(fetchProducts());
@@ -26,6 +29,7 @@ let error = useSelector(gs=>gs.products.error)
             products.map((p,index)=> 
             <div key={index}>
                 Id {p.id} Name {p.pname} Price {p.price}
+               <PlaceOrders pname={p.pname}></PlaceOrders>
             </div>
             )
         }    
