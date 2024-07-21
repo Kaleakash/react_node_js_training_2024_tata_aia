@@ -5,6 +5,8 @@ import SecondComponent from './SecondComponent';
 import ActionComponent from './ActionComponent';
 import IncrementComponent from './IncrementComponent';
 import DecrementComponent from './DecrementComponent';
+import DynamicIncrement from './DynamicIncrement.';
+import DynamicDecrement from './DynamicDecrement';
 
 function App() {
   return (
@@ -17,6 +19,10 @@ function App() {
       <IncrementComponent></IncrementComponent>
       <hr/>
       <DecrementComponent></DecrementComponent>
+      <hr/>
+      <DynamicIncrement></DynamicIncrement>
+      <hr/>
+      <DynamicDecrement></DynamicDecrement>
     </div>
   );
 }
