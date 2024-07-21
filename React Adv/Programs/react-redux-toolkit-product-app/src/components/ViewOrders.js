@@ -7,7 +7,7 @@ function ViewOrders() {
     let loading = useSelector(gs=>gs.orders.loading)
     let error = useSelector(gs=>gs.orders.error)
         useEffect(()=> {
-            console.log("view orders useEffect")
+           // console.log("view orders useEffect")
             dispatch(fetchOrders());
         },[])
     

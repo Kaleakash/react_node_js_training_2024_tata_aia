@@ -1,26 +1,5 @@
 {
-  "products": [
-    {
-      "id": "100",
-      "pname": "TV",
-      "price": 67000
-    },
-    {
-      "id": "101",
-      "pname": "Computer",
-      "price": 45000
-    },
-    {
-      "id": "102",
-      "pname": "Laptop",
-      "price": 95000
-    },
-    {
-      "id": "d5f0",
-      "pname": "Pen Drive",
-      "price": "1600"
-    }
-  ],
+  "products": [],
   "orders": [
     {
       "id": "26ea",
@@ -86,6 +65,11 @@
       "id": "7328",
       "pname": "Pen Drive",
       "orderDate": "2024-07-21T11:30:14.866Z"
+    },
+    {
+      "id": "2749",
+      "pname": "TV",
+      "orderDate": "2024-07-21T12:03:26.484Z"
     }
   ]
 }

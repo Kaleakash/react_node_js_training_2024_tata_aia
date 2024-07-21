@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../actions/productActions";
 import { storeOrders } from "../actions/ordersAction";
 import PlaceOrders from "./PlaceOrders";
+import DeleteProduct from "./DeleteProduct";
 
 function DisplayProduct() {
 let dispatch = useDispatch();
@@ -29,6 +30,7 @@ let error = useSelector(gs=>gs.products.error)
             products.map((p,index)=> 
             <div key={index}>
                 Id {p.id} Name {p.pname} Price {p.price}
+                <DeleteProduct id={p.id}/>
                <PlaceOrders pname={p.pname}></PlaceOrders>
             </div>
             )

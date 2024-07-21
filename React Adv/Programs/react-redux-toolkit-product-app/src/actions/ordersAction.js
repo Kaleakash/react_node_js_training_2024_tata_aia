@@ -14,7 +14,7 @@ export const fetchOrders = ()=> async (dispatch)=>{
     dispatch(fetchOrdersStart());
     try{
         const response = await axios.get(url);      // synch await keyword replace to then() function 
-        console.log(response)
+        //console.log(response)
     dispatch(fetchOrdersSuccess(response.data))
     }catch(error){
     console.log(error);

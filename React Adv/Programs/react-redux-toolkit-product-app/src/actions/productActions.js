@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addProductFailure, addProductsStart, addProductSuccess, fetchProductFailure, fetchProductsStart, fetchProductSuccess } from "../slice/productSlice";
+import { addProductFailure, addProductsStart, addProductSuccess, deleteProductFailure, deleteProductSuccess, fetchProductFailure, fetchProductsStart, fetchProductSuccess } from "../slice/productSlice";
 
 
 let url = "http://localhost:3000/products";
@@ -12,7 +12,7 @@ export const fetchProducts = ()=> async (dispatch)=>{
     dispatch(fetchProductsStart());
     try{
         const response = await axios.get(url);      // synch await keyword replace to then() function 
-        console.log(response)
+        //console.log(response)
     dispatch(fetchProductSuccess(response.data))
     }catch(error){
     console.log(error);
@@ -27,10 +27,24 @@ export const storeProducts = (product)=> async (dispatch)=>{
     dispatch(addProductsStart());
     try{
         const response = await axios.post(url,product)      // synch await keyword replace to then() function 
-        console.log(response)
+        //console.log(response)
     dispatch(addProductSuccess(response.data))
     }catch(error){
     console.log(error);
     dispatch(addProductFailure(error.message))
+    }
+}
+
+// Asyn thunk for store products 
+export const deleteProduct = (id)=> async (dispatch)=>{
+    console.log(id);
+    //dispatch(addProductsStart());
+    try{
+        const response = await axios.delete(`${url}/${id}`)      // synch await keyword replace to then() function 
+        console.log(response)
+    dispatch(deleteProductSuccess(response.data))
+    }catch(error){
+    console.log(error);
+    dispatch(deleteProductFailure(error.message))
     }
 }

@@ -27,6 +27,14 @@ const productSlice = createSlice({
         },
         addProductFailure(state,action){
             state.error=action.payload       
+        },
+        deleteProductSuccess(state,action){
+            state.loading=false;
+            console.log(action.payload.id)
+           state.productList=state.productList.filter(p=>p.id!=action.payload.id)
+        },
+        deleteProductFailure(state,action){
+            state.error=action.payload       
         }
     }
 })
@@ -36,7 +44,9 @@ export const {
     fetchProductFailure,
     addProductsStart,
     addProductSuccess,
-    addProductFailure
+    addProductFailure,
+    deleteProductSuccess,
+    deleteProductFailure
 }=productSlice.actions;
 
 export default productSlice.reducer;
