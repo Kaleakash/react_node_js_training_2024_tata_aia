@@ -8,22 +8,25 @@ const productSlice = createSlice({
     },
     reducers:{
         fetchProductsStart(state,action) {
-
+            state.loading=true;
         },
         fetchProductSuccess(state,action){
-
+            state.loading=false;
+            state.productList=action.payload
         },
         fetchProductFailure(state,action){
-
+            state.loading=false;
+            state.error=action.payload
         },
         addProductsStart(state,action) {
-
+            state.loading=true;
         },
         addProductSuccess(state,action){
-
+            state.loading=false;
+            state.productList.push(action.payload)
         },
         addProductFailure(state,action){
-
+            state.error=action.payload       
         }
     }
 })
