@@ -4,12 +4,13 @@ import { fetchProducts } from "../action/productAction";
 
 function ProductView() {
 let products = useSelector(gs=>gs.products.productList)
+let requestId=useSelector(gs=>gs.products.requestId)
 let loading=useSelector(gs=>gs.products.loading)
 let dispatch = useDispatch();
 
 useEffect(()=> {
     dispatch(fetchProducts())
-},[])
+},[requestId])
 
 console.log(products)
 

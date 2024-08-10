@@ -4,6 +4,71 @@
       "id": "100",
       "pname": "Sony Tv",
       "price": "65000"
+    },
+    {
+      "id": "44ea",
+      "pname": "Computer",
+      "price": "36000"
+    },
+    {
+      "id": "1db9",
+      "pname": "Pen Drive",
+      "price": "1800"
+    },
+    {
+      "id": "1d22",
+      "pname": "Mobile",
+      "price": "78000"
+    },
+    {
+      "id": "b599",
+      "pname": "Pen",
+      "price": "120"
+    },
+    {
+      "id": "c43f",
+      "pname": "Shirt",
+      "price": "550"
+    },
+    {
+      "id": "22f5",
+      "pname": "Pant",
+      "price": "1600"
+    },
+    {
+      "id": "0f06",
+      "pname": "Hard Disk",
+      "price": "5600"
+    },
+    {
+      "id": "82e0",
+      "pname": "External Hard Disk",
+      "price": "6800"
+    },
+    {
+      "id": "2325",
+      "pname": "Abc",
+      "price": "1000"
+    },
+    {
+      "id": "f8ca",
+      "pname": "abccafad",
+      "price": "123321"
+    },
+    {
+      "id": "cc1f",
+      "pname": "aaa",
+      "price": "1111"
+    },
+    {
+      "id": "0657",
+      "pname": "bbbb",
+      "price": "123123"
+    },
+    {
+      "id": "bc2d",
+      "pname": "cccc",
+      "price": "123123"
     }
   ]
 }

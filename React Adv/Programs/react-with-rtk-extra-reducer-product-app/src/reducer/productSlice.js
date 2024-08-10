@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit"
 const initialStateInfo={
     productList:[],
     loading:false,
-    error:null
+    error:null,
+    requestId:""
 }
 
 const productSlice = createSlice({
@@ -18,11 +19,17 @@ extraReducers:(builder)=> {
         state.loading=true;
     }).addCase("products/fetchProducts/rejected",(state,action)=> {
         state.error=action.error.message
+    }).
+    addCase("store/fulfilled",(state,action)=> {
+        state.loading=false;
+        state.productList.concat(action.payload)
+        state.requestId=action.requestId
+    }).addCase("store/pending",(state,action)=> {
+        state.loading=true;
+    }).addCase("store/rejected",(state,action)=> {
+        state.error=action.error.message
     })
 }
-
-
-
 
 })
 
