@@ -30,7 +30,6 @@ extraReducers:(builder)=> {
         state.error=action.error.message
     })
 }
-
 })
 
 export default productSlice.reducer;
