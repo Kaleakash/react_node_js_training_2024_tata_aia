@@ -6,6 +6,7 @@ const productSlice = createSlice({
         loading:false,
         error:null
     },
+    
     reducers:{
         fetchProductsStart(state,action) {
             state.loading=true;

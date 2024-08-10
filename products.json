@@ -1,0 +1,9 @@
+{
+  "products": [
+    {
+      "id": "100",
+      "pname": "Sony Tv",
+      "price": "65000"
+    }
+  ]
+}
