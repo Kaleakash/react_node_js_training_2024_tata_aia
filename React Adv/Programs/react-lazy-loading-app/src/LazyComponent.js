@@ -1,8 +1,8 @@
-function LazyComponent () {
+function LazyComponent(props) {
 
     return(
         <div>
-            <h2>I am a Lazy Component</h2>
+            <h2>This is lazy component</h2>
         </div>
     )
 
