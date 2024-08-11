@@ -9,6 +9,7 @@ const MyLazyComponent = lazy(()=>import("./LazyComponent"))
 
 function App() {
   let [loadingState,setLoadingState]=useState("initial");
+  let [flag,setFlag]=useState(false);
   useEffect(()=> {
     const timer = setTimeout(()=> {
         setLoadingState("preparing")
@@ -32,9 +33,15 @@ function App() {
       {/* <ImageComponent></ImageComponent> */}
       {/* <ImageLazyLoadComponent></ImageLazyLoadComponent> */}
       {/* <LazyComponent></LazyComponent> */}
-      <Suspense fallback={getFallbackStatus()}>
+      
+      <input type='button' value="Load Component" onClick={()=>setFlag(!flag)}/>
+      <br/>
+      {
+        flag?<Suspense fallback={getFallbackStatus()}>
         <MyLazyComponent/>
-      </Suspense>
+      </Suspense>:null
+      }
+      
     </div>
   );
 }
