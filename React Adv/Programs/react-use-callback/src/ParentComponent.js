@@ -12,9 +12,13 @@ const handleClick = useCallback(()=> {
         <div>
             <h4>ParentComponent </h4>
             <input type="button" value="Parent Component Button" onClick={handleClick}/>
+            <p>Count is value {count}</p>
+
+            <hr/>
+            
             <ChildComponent onHandleClick={handleClick}></ChildComponent>
             <br/>
-            <p>Count is value {count}</p>
+           
         </div>
     )
 
