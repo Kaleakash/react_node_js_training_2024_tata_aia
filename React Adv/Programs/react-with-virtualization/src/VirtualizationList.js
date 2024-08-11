@@ -1,14 +1,16 @@
-
+import { useState } from 'react';
+import './index.css'
 import {FixedSizeList as List} from 'react-window';
 function VirtualizationList() {
 
 const data = Array.from(Array(1000).keys()); // huge data can be load from backend technologies. 
-console.log(data.length)
+console.log(data)
+let [info,setInfo]=useState(data);
 // for(let i=0;i<data.length;i++){
 //     console.log(data[i])
 // }
-const row = ({index})=> 
-    <div>
+const row = ({index,style})=> 
+    <div className='itemClass' style={style}>
         {data[index]}
     </div>
 
@@ -23,6 +25,7 @@ const row = ({index})=>
             >
              {row}
             </List>
+            {info.map(l=><div>{l}</div>)}
         </div>
     )
 
