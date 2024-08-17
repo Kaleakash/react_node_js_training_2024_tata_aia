@@ -1,17 +1,25 @@
 import axios from "axios";
 import { useState } from "react";
+import useCsrfToken from "./useCsrfToken";
 
-function LoginWithoutToken() {
+function LoginWithToken() {
 let [user,setUser]=useState({})
-
+let csrfTokenValue = useCsrfToken();        // custom hook provide us token 
+console.log(csrfTokenValue)
 let handleSubmit = async (event)=> {
     event.preventDefault();
     console.log(user);
     try{
-    let response = await axios.post("http://localhost:3001/api/submit-form",user)
-        console.log(response.data)
+    let response = await axios.post("http://localhost:3001/api/submit-form",user,{
+        headers:{
+            'CSRF-Token':csrfTokenValue             // appending the token with header property 
+        },
+        withCredentials:true,                   // ensure send cookies with request 
+    })
+    console.log(response.data.message)
+    alert(response.data.message)    
     }catch(error){
-        console.log(error.message)
+        console.log(error)
     }
     setUser({"email":"","password":""})
 }
@@ -35,4 +43,4 @@ return(
 }
 
 
-export default LoginWithoutToken;
+export default LoginWithToken;
