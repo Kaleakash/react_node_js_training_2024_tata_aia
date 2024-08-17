@@ -4,12 +4,15 @@ const bcrypt = require('bcryptjs');
 const cors = require('cors');
 
 const app = express();
+
+// middleware 
 app.use(express.json());
 app.use(cors());
 
 const secretKey = 'your_secret_key';
 
 // In-memory user store (use a database like MongoDB for production)
+
 const users = [];
 
 // Middleware to authenticate and verify JWT token
@@ -38,13 +41,16 @@ function authorizeRoles(...roles) {
 app.post('/register', async (req, res) => {
     const { username, password, role } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
+    console.log(hashedPassword)
     const user = { id: users.length + 1, username, password: hashedPassword, role };
     
     if(role=="admin"){
         users.push(user);
+        console.log(users)
     res.status(201).send('Admin registered');
     }else if(role=="user"){
         users.push(user);
+        console.log(users)
         res.status(201).send('User registered');        
     }else {
         res.status(201).send('Not registered, role is not available');       

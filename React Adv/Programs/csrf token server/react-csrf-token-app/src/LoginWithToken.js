@@ -13,6 +13,7 @@ let handleSubmit = async (event)=> {
     let response = await axios.post("http://localhost:3001/api/submit-form",user,{
         headers:{
             'CSRF-Token':csrfTokenValue             // appending the token with header property 
+           //"key":"value"
         },
         withCredentials:true,                   // ensure send cookies with request 
     })
