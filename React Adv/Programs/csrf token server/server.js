@@ -32,7 +32,7 @@ app.post('/api/submit-form', (req, res) => {
   res.json({ message: 'Form submission successful!' });
 });
 
-// Error handling for CSRF errors
+//Error handling for CSRF errors
 app.use((err, req, res, next) => {
   console.log(err);
   if (err.code === 'EBADCSRFTOKEN') {
