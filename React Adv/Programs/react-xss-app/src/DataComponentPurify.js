@@ -17,8 +17,12 @@ let handleData=()=> {
             <input type="button" value="Add Data" onClick={handleData}/>
             <br/>
             <h2>Your Data with DOMPurify</h2>
-            {data.map((d,index)=> 
+            {data.map((d,index)=>
+                <div> 
+                <h1>Hi</h1>
                 <p key={index} dangerouslySetInnerHTML={{__html:d}}></p>
+                <span dangerouslySetInnerHTML={{__html:"Hello"}}></span>
+                </div>
             )}
         </div>
     )

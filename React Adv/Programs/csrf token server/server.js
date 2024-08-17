@@ -15,6 +15,8 @@ app.use(cors({
 app.use(csurf({ cookie: true })); // CSRF protection
 
 // Route to get CSRF token
+// http://localhost:3001/api/csrf-token
+
 app.get('/api/csrf-token', (req, res) => {
   let csrTokenValue = req.csrfToken();
   console.log("Token generate "+csrTokenValue)
@@ -22,14 +24,17 @@ app.get('/api/csrf-token', (req, res) => {
 });
 
 // Example protected route
+//http://localhost:3001//api/submit-form
 app.post('/api/submit-form', (req, res) => {
   // Handle the form submission
+  console.log("post request")
   console.log(req.body)
   res.json({ message: 'Form submission successful!' });
 });
 
 // Error handling for CSRF errors
 app.use((err, req, res, next) => {
+  console.log(err);
   if (err.code === 'EBADCSRFTOKEN') {
     res.status(403).send('CSRF token validation failed');
   } else {
