@@ -1,3 +1,4 @@
+// import {fun1,fun2} from 'path or modulename'
 let fs = require("fs");
 let data = fs.readFileSync("demo.txt");
 console.log(data);
