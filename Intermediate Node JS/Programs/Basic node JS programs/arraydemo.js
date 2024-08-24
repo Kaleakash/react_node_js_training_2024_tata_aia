@@ -19,11 +19,13 @@ console.log(num2)
 //console.log(num2);
 let index = num2.findIndex(e=>e==40)
 //console.log(index);
-if(index==-1){
-    console.log("element not present")
-}else {
-    num2.splice(index,1);
-    console.log("element deleted")
-}
-console.log(num2);
+// if(index==-1){
+//     console.log("element not present")
+// }else {
+//     num2.splice(index,1);
+//     console.log("element deleted")
+// }
+// console.log(num2);
 
+num2.splice(-1,1);
+console.log(num2)
