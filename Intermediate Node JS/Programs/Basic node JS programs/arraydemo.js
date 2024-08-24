@@ -15,5 +15,15 @@ console.log(num2)
 //num2.splice(2,2);       // 1st parameter index position and 2nd number number of element to remove 
 //num2.splice(2,0,100);   // 3rd,4th,5th...nth parameter number to add the element 
 //num2.splice(2,0,100,200,300,400);
-num2.splice(2,1,100);       // 2nd index position element replace by 100
+//num2.splice(2,1,100);       // 2nd index position element replace by 100
+//console.log(num2);
+let index = num2.findIndex(e=>e==40)
+//console.log(index);
+if(index==-1){
+    console.log("element not present")
+}else {
+    num2.splice(index,1);
+    console.log("element deleted")
+}
 console.log(num2);
+
