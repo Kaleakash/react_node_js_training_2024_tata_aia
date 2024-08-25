@@ -3,13 +3,16 @@ let url = require("url");
 
 http.createServer((req,res)=> {
 let urlRef = url.parse(req.url,true)
-
+    //console.log(req)
+    //console.log(req.method)
+    //console.log(req.headers)
+    res.setHeader("content-type","text/html");  // added response type as html default plain text 
     if(urlRef.pathname=="/"){
-        res.write("Welcome to Index Page")
+        res.write("<h2>Welcome to Index Page</h2>")
     }else if(urlRef.pathname=="/aboutus"){
-        res.write("Welcome to About Us Page")
+        res.write("<h2>Welcome to About Us Page</h2>")
     }else if(urlRef.pathname=="/contactus"){
-        res.write("Welcome to Contact Us page")
+        res.write("<h2>Welcome to Contact Us page</h2>")
     }else {
         res.write("Page not found")
     }
