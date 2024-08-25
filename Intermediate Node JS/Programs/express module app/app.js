@@ -28,6 +28,27 @@ app.get("/feedback",(req,res)=>{
     res.sendFile(__dirname+"/feedback.html")
 })
 
+app.get("/login",(req,res)=>{
+    //res.send("<h2>Feedback</h2>")
+    res.sendFile(__dirname+"/login.html")
+})
+
+app.get("/checkLoginDetails",(req,res)=> {
+    //let emailid = req.query.emailid
+    //let password = req.query.password
+    let emailid = req.query["emailid"]
+    let password = req.query["password"]
+    if(emailid=="raj@gmail.com" && password=="123"){
+            res.send("Successfully login")
+    }else {
+            res.send("Failure try once again")
+    }
+})
+
+app.get("/**",(req,res)=> {
+    res.send("Page not found")
+})
+
 app.listen(9090,()=> {
     console.log("Server running on port number 9090")
 })
