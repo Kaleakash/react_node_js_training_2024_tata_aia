@@ -1,5 +1,6 @@
 let http = require("http");
 let url = require("url");
+let fs = require("fs");
 let msg = "Welcome to Node JS Server Application"
 let indexPage =`
     <html>
@@ -8,7 +9,8 @@ let indexPage =`
         <body>
         <h2>${msg}</h2>
         <a href="aboutus">About us</a>|
-        <a href="contactus">Contact us</a>
+        <a href="contactus">Contact us</a>|
+        <a href="login">Login</a>
         </body>
     </html>
 `
@@ -54,6 +56,19 @@ let urlRef = url.parse(req.url,true)
         res.write(about_us)
     }else if(urlRef.pathname=="/contactus"){
         res.write(contact_us)
+    }else if(urlRef.pathname=="/login"){
+        let loginPage = fs.readFileSync("login.html");
+        let loginPageData = loginPage.toString();
+        //console.log(loginPageData)
+        res.write(loginPageData)
+    }else if(urlRef.pathname=="/checkLoginDetails"){
+            let data = urlRef.query;
+            if(data.emailid=="akash@gmail.com" && data.pass=="123"){
+                res.write("<h2>Successfully login</h2>")
+            }else {
+                res.write("<h2>Failure try once again</h2>")
+                res.write(indexPage)
+            }
     }else {
         res.write("Page not found")
     }
