@@ -10,6 +10,8 @@ let pool = new pg.Pool({
 })
 // Get all product from database ie postgres 
 
+app.use(express.json());        // enable json data from request body 
+
 app.get("/products",async(req,res)=> {
     try{
     let product_info =await pool.query("select * from product");
@@ -34,6 +36,23 @@ app.get("/find_product/:pid",async (req,res)=> {
 }catch(ex){
     res.json({"msg":ex.message})
 }
+})
+
+// store product information in postgres database 
+app.post("/store_product",async(req,res)=> {
+    try {
+        let product = req.body;
+        let result = await pool.query("insert into product values($1,$2,$3)",
+            [product.pid,product.pname,product.price]);
+            
+        if(result.rowCount>0) {
+            res.json({"msg":"Product details stored in db successfully"})
+        }
+    } catch (ex) {
+        res.json({"msg":ex.message});
+    }
 
 })
+
+
 app.listen(9090,()=>console.log("Server running on port number 9090"));
