@@ -54,5 +54,33 @@ app.post("/store_product",(req,res)=> {
     }
 })
 
-
+// update product price using put method 
+// http://localhost:9090/update_product_price      method put data {"pid":3,"price":1600}
+app.put("/update_product_price",(req,res)=> {
+    let product = req.body;     // it is use to extract data from request body. 
+    console.log(product);
+    let index = products.findIndex(p=>p.pid==product.pid);  // if record present it return that record index position else -1
+    if(index==-1){
+        res.json({"msg":"Product didn't update it is not present"}); 
+    }else {
+       products[index].price=product.price;
+       res.json({"msg":"Product price updated successfully"})
+    }
+})
+// delete the product using pid 
+// http://localhost:9090/delete_product/1
+ // http://localhost:9090/delete_product/100
+app.delete("/delete_product/:pid",(req,res)=> {
+    let pid = req.params.pid;
+    let index = products.findIndex(p=>p.pid==pid);
+    if(index==-1){
+        res.json({"msg":"Product didn't delete it is not present"}); 
+    }else {
+       products.splice(index,1);        //1st parameter index position and 2nd parameter number of record to delete. 
+       // splice 1st parameter index position, 2nd parameter number of record to delete, 3rd, 4th,nth parameter add the elements.
+       //products.splice(index,2);
+       // products.splice(index,2,product1,product2);
+       res.json({"msg":"Product deleted successfully"})
+    }
+})
 app.listen(9090,()=>console.log("Server running on port number 9090"));
