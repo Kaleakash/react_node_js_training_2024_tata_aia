@@ -1,6 +1,11 @@
 let express = require("express");       // load the module 
 let app = express();                // created the reference. 
+let bodyParser = require("body-parser");
 
+// middleware 
+
+//app.use(express.json());                // enable json data from request body. 
+app.use(bodyParser.json());             // enable json data from request body using bodyParser 
 let products = [
     {"pid":1,"pname":"Tv","price":68000},
     {"pid":2,"pname":"Computer","price":46000},
@@ -33,6 +38,20 @@ app.get("/product_param/:pid",(req,res)=> {
         res.json(result);
     }
     //res.send("path param done!")
+})
+
+// store product details using post method 
+// http://localhost:9090/store_product      method post data {"pid":3,"pname":"Pen Drive","price":1600}
+app.post("/store_product",(req,res)=> {
+    let product = req.body;     // it is use to extract data from request body. 
+    console.log(product);
+    let result = products.find(p=>p.pid==product.pid);  // if record present it return that record else undefined. 
+    if(result==undefined){
+        products.push(product);
+        res.json({"msg":"Product information stored"})
+    }else {
+        res.json({"msg":"Product id must be unique"});
+    }
 })
 
 
