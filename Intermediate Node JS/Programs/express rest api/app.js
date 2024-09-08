@@ -8,3 +8,6 @@ app.get("/product",(req,res)=> {
 
 
 app.listen(9090,()=>console.log("express server up"))
+
+
+// http://localhost:9090/product 
