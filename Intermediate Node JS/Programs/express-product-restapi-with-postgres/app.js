@@ -44,7 +44,7 @@ app.post("/store_product",async(req,res)=> {
         let product = req.body;
         let result = await pool.query("insert into product values($1,$2,$3)",
             [product.pid,product.pname,product.price]);
-            
+
         if(result.rowCount>0) {
             res.json({"msg":"Product details stored in db successfully"})
         }
@@ -52,6 +52,36 @@ app.post("/store_product",async(req,res)=> {
         res.json({"msg":ex.message});
     }
 
+})
+
+// update the product price 
+app.put("/update_product_price",async(req,res)=> {
+    try {
+        let product =req.body;
+        let result = await pool.query("update product set price = $1 where pid=$2",
+            [product.price,product.pid]);
+        if(result.rowCount>0) {
+            res.json({"msg":"Product price updated successfully"})
+        }else {
+            res.json({"msg":"Record didn't update"})
+        }
+    } catch (ex) {
+        res.json({"msg":ex.message})
+    }
+})
+// delete the product 
+app.delete("/delete_product/:pid",async(req,res)=> {
+    try {
+        let pid = req.params.pid;
+        let result = await pool.query("delete from product where pid = $1",[pid]);
+        if(result.rowCount>0) {
+            res.json({"msg":"Product deleted successfully"})
+        }else {
+            res.json({"msg":"Record not present"})
+        }
+    } catch (ex) {
+        res.json({"msg":ex.message})   
+    }
 })
 
 
