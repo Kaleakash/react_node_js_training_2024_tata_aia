@@ -1,5 +1,6 @@
 let express = require("express");
 let app = express();
+let fs = require("fs");
 let morgan  = require("morgan");
 let PORT=9090;
 
@@ -14,7 +15,9 @@ let products = [
 //app.use(morgan("dev"))
 //app.use(morgan("short"))
 //app.use(morgan("tiny"))
-app.use(morgan("Method :method - URL :url - Status :status Response Time :response-time ms"))
+let fsModuleRef = fs.createWriteStream("my_log_file.log",{flags:"a"})
+//app.use(morgan("Method :method - URL :url - Status :status Response Time :response-time ms",{stream:fsModuleRef}));
+app.use(morgan("combined",{stream:fsModuleRef}));
 app.use(express.json())
 
 app.get("/",(req,res)=> {

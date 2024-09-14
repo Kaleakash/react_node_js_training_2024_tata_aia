@@ -1,0 +1,9 @@
+Method GET - URL / - Status 304 Response Time 5.298 ms
+Method GET - URL / - Status 304 Response Time 0.900 ms
+Method GET - URL /products - Status 304 Response Time 2.855 ms
+Method GET - URL /products - Status 304 Response Time 0.980 ms
+Method GET - URL /prod - Status 404 Response Time 6.146 ms
+Method GET - URL /hello - Status 404 Response Time 2.239 ms
+Method GET - URL /products - Status 304 Response Time 1.704 ms
+::1 - - [14/Sep/2024:10:44:06 +0000] "GET /products HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
+::1 - - [14/Sep/2024:10:44:11 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36"
