@@ -21,3 +21,32 @@ exports.storeProduct = async (product)=> {
         throw error.message
     }
 }
+
+exports.updateProductPrice = async (product)=> {
+    try {
+        let {pid,price}=product;
+        const result = await pool.query("update product set price = $1 where pid=$2 returning *",
+            [price,pid]);
+        if(result.rowCount>0){
+            return "Product price updated successfully";
+        }else {
+            return "Product not present";
+        }
+    } catch (error) {
+        throw error.message
+    }
+}
+
+exports.deleteProduct = async (pid)=> {
+    try {
+        const result = await pool.query("delete from product where pid = $1 returning *",
+            [pid]);
+        if(result.rowCount>0){
+            return "Product deleted successfully";
+        }else {
+            return "Product not present"
+        }
+    } catch (error) {
+        throw error.message
+    }
+}

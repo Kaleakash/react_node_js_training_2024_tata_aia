@@ -4,8 +4,10 @@ let productController = require("../controller/productController")
 
 router.get("/find",productController.findAllProducts);
 router.post("/store",productController.storeProduct);
+router.put("/update_price",productController.updateProductPrice);
+router.delete("/delete/:pid",productController.deleteProduct)
 
-//router.get("/findbyid/:pid",productController.findAllProducts);
+
 
 
 module.exports=router;

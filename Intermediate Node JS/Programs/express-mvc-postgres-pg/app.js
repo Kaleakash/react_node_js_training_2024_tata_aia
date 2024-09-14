@@ -7,7 +7,7 @@ let productRouter= require("./router/productRouter");
 app.use(express.json());
 
 // http://localhost:9090/api/products/*
-app.use("/api/products",productRouter);
+app.use("/api/products",productRouter)
 
 
 
