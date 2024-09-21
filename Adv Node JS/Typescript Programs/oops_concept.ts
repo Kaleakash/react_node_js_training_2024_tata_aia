@@ -20,11 +20,13 @@
 //     this.id=100;
 //     this.name="Ravi";
 //     this.age=21;                // instance variable 
+//     let city = "Bangalore"       // local or like private variable. 
 //     this.displayEmpInfo = function() {
 //         console.log("employee object function")
 //         console.log("id is "+this.id);
 //         console.log("name is "+this.name);
 //         console.log("age is "+this.age);
+//          console.log("city is "+city)
 //     }
 
 // }
@@ -41,22 +43,63 @@
 // emp1.displayEmpInfo();
 
 // parameter constructor 
-function Employee(id:number=0,name:string="Unknown",age:number=18,...tech:Array<string>){                // object creation using function style 
-    this.id=id;
-    this.name=name;
-    this.age=age;                // instance variable 
-    this.tech=tech;
-    this.displayEmpInfo = function() {
-        console.log("employee object function")
-        console.log("id is "+this.id);
-        console.log("name is "+this.name);
-        console.log("age is "+this.age);
-        for(let t of tech){
-            console.log(t)
-        }
+// function Employee(id:number=0,name:string="Unknown",age:number=18,...tech:Array<string>){                // object creation using function style 
+//     this.id=id;
+//     this.name=name;
+//     this.age=age;                // instance variable 
+//     this.tech=tech;
+//     this.displayEmpInfo = function() {
+//         console.log("employee object function")
+//         console.log("id is "+this.id);
+//         console.log("name is "+this.name);
+//         console.log("age is "+this.age);
+//         for(let t of tech){
+//             console.log(t)
+//         }
+//     }
+// }
+// let emp1 = new Employee(1,"Ravi",21,"Java","Python");      // created the memory
+// let emp2 = new Employee(2,"Ramesh");
+// emp1.displayEmpInfo();
+// emp2.displayEmpInfo();
+
+// ES6 style object creation in type script with default empty constructor 
+// class Employee {
+//     id:number=100;      // no this keyword in class while creating instance variable.    
+//     name:string = "Ravi Kumar";
+//     age:number = 21;            // instance variable 
+    
+//     displayEmpInfo():void {
+//         console.log("Employee details are")
+//         console.log("id is "+this.id);
+//         console.log("name is "+this.name);
+//         console.log("age is "+this.age);
+//     }
+// }
+// let emp1 = new Employee();
+// emp1.displayEmpInfo();
+
+// ES6 style object creation in type script with constructor 
+class Employee {
+    id;
+    name;
+    salary;
+    constructor(id:number=0,name:string="",salary:number=0.0){
+        console.log("parameter constructor")
+        this.id=id;
+        this.name=name;
+        this.salary=salary;
+    }
+    display() : void {
+        console.log(" employee class function")
+        console.log("id is "+this.id+" name is "+this.name+" salary is "+this.salary)
     }
 }
-let emp1 = new Employee(1,"Ravi",21,"Java","Python");      // created the memory
-let emp2 = new Employee(2,"Ramesh");
-emp1.displayEmpInfo();
-emp2.displayEmpInfo();
+let emp1 = new Employee(100,"Ravi",34000);
+let emp2 = new Employee(101,"Raj",36000);
+let emp3 = new Employee();
+let emp4 = new Employee(100);
+let emp5 = new Employee(101,"Rajesh");
+emp1.display();
+emp2.display();
+//console.log(emp1.id)
