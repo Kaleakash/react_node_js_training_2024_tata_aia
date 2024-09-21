@@ -23,6 +23,9 @@ class Developer extends Employee {                      // projectName
         console.log("project name is "+this.projectName)
     }
 }
+class Address {
+    
+}
 let emp1 = new Employee(100,"Ravi",24000);
 emp1.disEmp();
 let mgr1 = new Manager(101,"Ajay",55000,10);
