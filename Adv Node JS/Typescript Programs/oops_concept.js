@@ -73,23 +73,71 @@
 // let emp1 = new Employee();
 // emp1.displayEmpInfo();
 // ES6 style object creation in type script with constructor 
+// class Employee {
+//     id;
+//     name;
+//     salary;
+//     constructor(id:number=0,name:string="",salary:number=0.0){
+//         console.log("parameter constructor")
+//         this.id=id;
+//         this.name=name;
+//         this.salary=salary;
+//     }
+//     display() : void {
+//         console.log(" employee class function")
+//         console.log("id is "+this.id+" name is "+this.name+" salary is "+this.salary)
+//     }
+// }
+// let emp1 = new Employee(100,"Ravi",34000);
+// let emp2 = new Employee(101,"Raj",36000);
+// let emp3 = new Employee();
+// let emp4 = new Employee(100);
+// let emp5 = new Employee(101,"Rajesh");
+// emp1.display();
+// emp2.display();
+// //console.log(emp1.id)
+// Encapsulation 
 class Employee {
     constructor(id = 0, name = "", salary = 0.0) {
         console.log("parameter constructor");
-        this.id = id;
-        this.name = name;
-        this.salary = salary;
+        this._id = id;
+        this._name = name;
+        //this.salary=salary;
+        if (salary < 0) {
+            this._salary = 8000;
+        }
+        else {
+            this._salary = salary;
+        }
+    }
+    set id(id) {
+        this._id = id;
+    }
+    get id() {
+        return this._id;
+    }
+    set salary(salary) {
+        this._salary = salary;
+    }
+    get salary() {
+        return this._salary;
+    }
+    set name(name) {
+        this._name = name;
+    }
+    get name() {
+        return this._name;
     }
     display() {
         console.log(" employee class function");
-        console.log("id is " + this.id + " name is " + this.name + " salary is " + this.salary);
+        console.log("id is " + this._id + " name is " + this._name + " salary is " + this._salary);
     }
 }
-let emp1 = new Employee(100, "Ravi", 34000);
-let emp2 = new Employee(101, "Raj", 36000);
-let emp3 = new Employee();
-let emp4 = new Employee(100);
-let emp5 = new Employee(101, "Rajesh");
+let emp1 = new Employee(100, "Ravi", -34000);
+//emp1.salary=-45000;
 emp1.display();
-emp2.display();
-//console.log(emp1.id)
+let emp2 = new Employee();
+emp2.id = 101;
+emp2.name = "Ramesh";
+emp2.salary = 45000;
+console.log("id is " + emp2.id + " name is " + emp2.name + " salary " + emp2.salary);
