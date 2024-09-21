@@ -105,16 +105,23 @@
 // console.log("sum of two number is using arrow style"+addNumber2(200,300))
 // let addNumber3 = (a,b)=>a+b
 // console.log("sum of two number is using arrow style"+addNumber3(200,300))
-function greeting(fname, callback) {
-    return "Welcome " + callback(fname);
-}
-var maleInfo = function (name) {
-    return "Mr " + name;
-};
-var femaleInfo = function (name) { return "Miss " + name; };
-console.log(greeting("Ravi", maleInfo));
-console.log(greeting("Seeta", femaleInfo));
-console.log(greeting("Ajay", function (name) {
-    return "Mr " + name;
-}));
-console.log(greeting("Veeta", function (name) { return "Miss " + name; }));
+// function greeting(fname:string,callback:Function): string {
+//     return "Welcome "+callback(fname);
+// }
+// let maleInfo:Function = function(name:string):string{
+//     return "Mr "+name;
+// } 
+// let femaleInfo:Function = (name:string):string=>"Miss "+name;
+// console.log(greeting("Ravi",maleInfo))
+// console.log(greeting("Seeta",femaleInfo))
+// console.log(greeting("Ajay",function(name:string):string{
+//     return "Mr "+name;
+// } ))
+// console.log(greeting("Veeta",(name:string):string=>"Miss "+name))
+(function () {
+    console.log("IIFE function");
+})();
+(function (a, b) {
+    var sum = a + b;
+    console.log(sum);
+})(10, 20);
