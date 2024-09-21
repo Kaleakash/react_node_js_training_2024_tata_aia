@@ -74,34 +74,47 @@
 // studentInfo1(3,"Rajesh",32);
 // studentInfo1(4,"Ajay",34,skillSetInfo[0],skillSetInfo[1],skillSetInfo[2]);
 // studentInfo1(4,"Ajay",34,...skillSetInfo);      // using spread operator we are passing value to rest operator 
-// normal style function 
-display1();
-function display1() {
-    console.log("normal function");
+// // normal style function 
+// display1();
+// function display1() {
+//     console.log("normal function")
+// }
+// display1();
+// // expression style function 
+// let display3 = function display2() {
+//                     console.log("normal function")
+//                 }
+// display3();
+// // expression style function 
+// //display4();
+// let display4 = function() {
+//         console.log("expression style function")
+// }
+// display4();
+// // arrow function 
+// let display5 = ()=>console.log("arrow style function")
+// display4();
+// // addition of two number using expression style 
+// let addNumber1 = function(a:number,b:number):number{
+//     let sum:number = a+b;
+//     return sum;
+// }
+// console.log("sum of two number is using expression style"+addNumber1(100,200))
+// // addition of two number using arrow style 
+// let addNumber2 = (a:number,b:number):number=>a+b
+// console.log("sum of two number is using arrow style"+addNumber2(200,300))
+// let addNumber3 = (a,b)=>a+b
+// console.log("sum of two number is using arrow style"+addNumber3(200,300))
+function greeting(fname, callback) {
+    return "Welcome " + callback(fname);
 }
-display1();
-// expression style function 
-var display3 = function display2() {
-    console.log("normal function");
+var maleInfo = function (name) {
+    return "Mr " + name;
 };
-display3();
-// expression style function 
-//display4();
-var display4 = function () {
-    console.log("expression style function");
-};
-display4();
-// arrow function 
-var display5 = function () { return console.log("arrow style function"); };
-display4();
-// addition of two number using expression style 
-var addNumber1 = function (a, b) {
-    var sum = a + b;
-    return sum;
-};
-console.log("sum of two number is using expression style" + addNumber1(100, 200));
-// addition of two number using arrow style 
-var addNumber2 = function (a, b) { return a + b; };
-console.log("sum of two number is using arrow style" + addNumber2(200, 300));
-var addNumber3 = function (a, b) { return a + b; };
-console.log("sum of two number is using arrow style" + addNumber3(200, 300));
+var femaleInfo = function (name) { return "Miss " + name; };
+console.log(greeting("Ravi", maleInfo));
+console.log(greeting("Seeta", femaleInfo));
+console.log(greeting("Ajay", function (name) {
+    return "Mr " + name;
+}));
+console.log(greeting("Veeta", function (name) { return "Miss " + name; }));
