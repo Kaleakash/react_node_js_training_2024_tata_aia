@@ -5,3 +5,5 @@ var num4:Array<number>=[10,20,30,40,50];
 var info:Array<any>=[10,"hello",10.20,true];
 console.log(num3)
 console.log(num4)
+var num5:Array<Object>;
+
