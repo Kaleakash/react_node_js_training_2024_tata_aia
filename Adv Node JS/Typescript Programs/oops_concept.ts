@@ -105,49 +105,74 @@
 // //console.log(emp1.id)
 
 // Encapsulation 
+// class Employee {
+//         private _id:number;
+//         private _name:string;
+//         private _salary:number;
+//         constructor(id:number=0,name:string="",salary:number=0.0){
+//             console.log("parameter constructor")
+//             this._id=id;
+//             this._name=name;
+//             //this.salary=salary;
+//             if(salary<0){
+//                 this._salary=8000;
+//             }else {
+//                 this._salary=salary;
+//             }
+//         }
+//         set id(id:number){
+//             if(id<0){
+//                 this._id=0;
+//             }  else {
+//                 this._id = id;   
+//             }
+//         }
+//         get id():number {
+//             return this._id;
+//         }
+//         set salary(salary:number){
+//             this._salary = salary;
+//         }
+//         get salary():number {
+//             return this._salary;
+//         }
+//         set name(name:string){
+//             this._name = name;
+//         }
+//         get name():string {
+//         return this._name;
+//         }
+//         display() : void {
+//             console.log(" employee class function")
+//             console.log("id is "+this._id+" name is "+this._name+" salary is "+this._salary)
+//         }   
+// }
+
+
+// let emp1 = new Employee(100,"Ravi",-34000);
+// //emp1.salary=-45000;
+// emp1.name="Ravi Kumar";
+// emp1.display();
+// let emp2 = new Employee();
+// emp2.id=-101;
+// emp2.name="Ramesh";
+// emp2.salary=45000;
+// console.log("id is "+emp2.id+" name is "+emp2.name+" salary "+emp2.salary)
+
+// we can use private or public access specifiers with parameter constructor variable. 
 class Employee {
-        private _id:number;
-        private _name:string;
-        private _salary:number;
-        constructor(id:number=0,name:string="",salary:number=0.0){
-            console.log("parameter constructor")
-            this._id=id;
-            this._name=name;
-            //this.salary=salary;
-            if(salary<0){
-                this._salary=8000;
-            }else {
-                this._salary=salary;
-            }
-        }
-        set id(id:number){
-                this._id = id;
-        }
-        get id():number {
-            return this._id;
-        }
-        set salary(salary:number){
-            this._salary = salary;
-        }
-        get salary():number {
-            return this._salary;
-        }
-        set name(name:string){
-            this._name = name;
-        }
-        get name():string {
-        return this._name;
-        }
-        display() : void {
-            console.log(" employee class function")
-            console.log("id is "+this._id+" name is "+this._name+" salary is "+this._salary)
-        }   i
+    //private id:number;
+    // private name:string;
+    // private salary:number;
+    constructor(private id:number,public name:string,private salary:number){
+        //this.id = id;
+        // this.name =name;
+        // this.salary=salary;
+    }
+    display(): void {
+        console.log("id is "+this.id+"name is "+this.name+" salary is "+this.salary)
+    }
 }
-let emp1 = new Employee(100,"Ravi",-34000);
-//emp1.salary=-45000;
+let emp1 = new Employee(100,"Ravi",34000);
 emp1.display();
-let emp2 = new Employee();
-emp2.id=101;
-emp2.name="Ramesh";
-emp2.salary=45000;
-console.log("id is "+emp2.id+" name is "+emp2.name+" salary "+emp2.salary)
+console.log(emp1.name)
