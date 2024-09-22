@@ -89,4 +89,21 @@ app.patch("/update_product_price",async(req,res)=> {
     }
 })
 
+// delete record 
+// http://localhost:9090/delete_product_by_id/1
+
+app.delete("/delete_product_by_id/:id",async(req,res)=> {
+    try {
+        let pid = req.params.id                     
+        let product = await ProductModel.findByPk(pid);
+        if(product==null){
+                res.json({"msg":"product not present"})
+        }else {
+            let result = await product.destroy();
+            res.json({"msg":"product deleted successfully "+result})
+        }
+    } catch (error) {
+        res.json({"msg":error.message})
+    }
+})
 app.listen(9090,()=>console.log("Server running on port number 9090"));
