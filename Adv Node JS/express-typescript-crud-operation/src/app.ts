@@ -19,7 +19,7 @@ app.get("/employees",(req:Request,res:Response)=> {
 })
 // http://localhost:9090/find_employee/100       path param 
 app.get("/find_employee/:id",(req:Request,res:Response)=> {
-    let eid = parseInt(req.params.id);          // coverting string to number 
+    let eid = parseInt(req.params.id);          // converting string to number 
     let result = employees.find(e=>e.id==eid);  // if record present it return that record else return undefined 
     if(result==undefined){
         res.json({"msg":"Record not present"})
@@ -27,7 +27,6 @@ app.get("/find_employee/:id",(req:Request,res:Response)=> {
         res.json(result);
     }
 })
-
 // http://localhost:9090/store_employee 
 app.post("/store_employee",(req:Request,res:Response)=> {
     let employee:EmployeeType = req.body;           // id,name,salary,age 
