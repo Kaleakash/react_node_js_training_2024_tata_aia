@@ -72,4 +72,21 @@ app.get("/find_by_id/:id",async (req,res)=> {
     }
 })
 
+// http://localhost:9090/update_product_price
+
+app.patch("/update_product_price",async(req,res)=> {
+    try {
+        let product = req.body;                         // json data must be id and new price {"id":1,"price":45000}
+        let oldProduct = await ProductModel.findByPk(product.id);
+        if(oldProduct==null){
+                res.json({"msg":"product not present"})
+        }else {
+            let result = await oldProduct.update(product)
+            res.json({"msg":result});
+        }
+    } catch (error) {
+        res.json({"msg":error.message})
+    }
+})
+
 app.listen(9090,()=>console.log("Server running on port number 9090"));
