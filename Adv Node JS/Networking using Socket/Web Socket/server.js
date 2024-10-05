@@ -16,6 +16,7 @@ app.ws("/",(socket,req)=> {
     // display on server console. 
     socket.on("message",(msg)=> {
         console.log(msg)
+     socket.send(`From Server : ${msg}`);   
     })
 
     // server send message to ws client 

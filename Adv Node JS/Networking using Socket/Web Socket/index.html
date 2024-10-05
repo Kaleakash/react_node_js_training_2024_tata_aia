@@ -10,15 +10,32 @@
         // this code ready to receive message from server 
         // browser console 
         ws.onmessage = (obj)=> {
-            console.log(obj.data)    
+            console.log(obj.data)   
+            document.getElementById("output").innerHTML=obj.data+"<br/>"; 
         }
+
+        var sendData;
 
         ws.onopen= ()=> {
             ws.send("From Client : Hello Server!")
+            sendData= ()=> {
+                let data = document.getElementById("msg").value;
+                ws.send(data);
+                document.getElementById("msg").value="";
+            }
         }
     </script>
 </head>
 <body>  
     <h2>Welcome Web Socket Programming</h2>
+    <textarea id="msg">
+
+    </textarea>
+    <br/>
+    <input type="button" value="Send Data" onclick="sendData()"/>
+    <br/>
+    <div id="output">
+
+    </div>
 </body>
 </html>
