@@ -17,7 +17,6 @@ let counterSlice = createSlice({
             console.log("decrement "+state)
             state.value = state.value-1
             console.log(action)
-
         },
         hello(state) {
             console.log("event fired")
