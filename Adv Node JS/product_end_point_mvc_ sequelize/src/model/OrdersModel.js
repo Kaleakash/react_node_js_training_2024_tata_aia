@@ -3,7 +3,7 @@ let sequelize= require("../config/dbConfig");
 const ProductModel = require("./ProductModel");
 // provide the definition for model 
 let OrdersModel = sequelize.define("Orders",{
-    oid:{
+    oid:{                       // pk 
         type:DataTypes.INTEGER,
         primaryKey:true,
         autoIncrement:true
@@ -12,12 +12,12 @@ let OrdersModel = sequelize.define("Orders",{
         type:DataTypes.DATE,
         defaultValue:DataTypes.NOW              // insert current date/time information 
     },
-    pid: {
+    pid: {                              //FK in orders 
         type:DataTypes.INTEGER,
         allowNull:false,
         references: {
             model:"product",
-            key:"pid"
+            key:"pid"                   // PK       in products 
         }
     }
 },{
