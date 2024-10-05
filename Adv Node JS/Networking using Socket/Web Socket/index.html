@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/JavaScript">
+        let ws = new WebSocket("ws://localhost:3000")
+
+        // this code ready to receive message from server 
+        // browser console 
+        ws.onmessage = (obj)=> {
+            console.log(obj.data)    
+        }
+
+        ws.onopen= ()=> {
+            ws.send("From Client : Hello Server!")
+        }
+    </script>
+</head>
+<body>
+    <h2>Welcome Web Socket Programming</h2>
+</body>
+</html>
