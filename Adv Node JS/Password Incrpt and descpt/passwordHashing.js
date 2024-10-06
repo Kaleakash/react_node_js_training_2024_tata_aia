@@ -6,7 +6,7 @@ let password2 = "abc@12345";
 // bcrypt_ref.hash(password1,5,(err,hash)=> {
 //         if(err){
 //             console.log(err.message)
-//         }else {
+//         }elsse {
 //             console.log("text format password "+password1)
 //             console.log("hash format password "+hash);      // it will help use to convert in hash store in db. 
 //         }
@@ -19,6 +19,8 @@ let password2 = "abc@12345";
 //             }
 //         })
 // })
+
+
 
 // ES6 style 
 let hashPassword= async(password)=>{
