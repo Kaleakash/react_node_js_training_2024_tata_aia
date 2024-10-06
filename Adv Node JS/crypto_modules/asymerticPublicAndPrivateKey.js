@@ -12,9 +12,7 @@ let {publicKey,privateKey}=crypto.generateKeyPairSync("rsa",{
 });
 console.log("Public Key "+publicKey)
 console.log("Private Key "+privateKey)
-
 let data = "Welcome to Crypto public and private key concept";
-
 function encryptWithPublicKey(publicKey,data){
         let encryptData = crypto.publicEncrypt({
             key:publicKey,
