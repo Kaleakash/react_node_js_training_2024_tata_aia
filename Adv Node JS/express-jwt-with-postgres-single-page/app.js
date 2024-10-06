@@ -61,17 +61,39 @@ const verifyToken = (req,res,next)=> {
     }else {
         //console.log(token)
         const decode = jwt.verify(token,"my_key")
-        next();
+        req.role = decode.role;
+        req.email=decode.email;
+        next();         // redirect to next middleware or end point or router 
         }
     }catch(error){
             res.json({"msg":error.message})
     }
 }
-// This access by user. 
-app.get("/user",verifyToken,(req,res)=>{
-    res.json({"msg":"Welcome User"})
+
+// creating middleware for to check admin 
+const isAdmin = (req,res,next)=>{
+    if(req.role!="admin"){
+        res.json({"msg":"Required Admin Role"})
+    }
+    next();
+}
+// creating middleware for to check user 
+const isUserOrAdmin = (req,res,next)=>{
+    if(req.role=="user" || req.role=="admin"){
+        next();
+    }else {
+        res.json({"msg":"Required User Role or Admin Role"})
+    }
+}
+// creating middleware for admin and user
+
+
+// This access by user as well as admin 
+app.get("/user",verifyToken,isUserOrAdmin,(req,res)=>{
+    res.json({"msg":`Welcome ${req.role=="admin"?"Admin":`${req.email}`}`})
 })
-app.get("/admin",verifyToken,(req,res)=>{
+// This access by admin 
+app.get("/admin",verifyToken,isAdmin,(req,res)=>{
     res.json({"msg":"Welcome Admin"})
 })
 
