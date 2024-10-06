@@ -3,7 +3,7 @@ let key = crypto.randomBytes(32);
 let iv1= crypto.randomBytes(16);
 let iv2= crypto.randomBytes(16);
 let data = "Welcome to crypto module";
-
+console.log()
 console.log("original Data:  "+data);
 
 let cipher = crypto.createCipheriv("aes-256-cbc",key,iv1);
