@@ -25,7 +25,7 @@ let strategy = new GitHubStrategy({
 },(accessToken,refreshToken,profile,done)=> {
     console.log("Access Token "+accessToken)
     console.log(profile)
-    return(null,profile)
+    done(null,profile)
 })
 
 passport.use(strategy);

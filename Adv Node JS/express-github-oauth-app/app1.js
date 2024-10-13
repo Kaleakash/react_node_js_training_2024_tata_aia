@@ -2,6 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const session = require('express-session');
 const GitHubStrategy = require('passport-github2').Strategy;
+const axios = require("axios");
 
 const app = express();
 
@@ -26,7 +27,7 @@ passport.use(new GitHubStrategy({
 },(accessToken,refreshToken,profile,done)=> {
     console.log("Access Token "+accessToken)
     console.log(profile)
-    return(null,profile)
+    done(null,profile)
 }));
 
 // Serialize user into session
@@ -56,31 +57,31 @@ app.get('/auth/github/callback', passport.authenticate('github', { failureRedire
 });
 
 // Dashboard route (protected)
-app.get('/dashboard', ensureAuthenticated, (req, res) => {
-  res.send(`<h1>Dashboard</h1><p>Welcome, ${req.user.username}!
-    </p><a href="/logout">Logout</a>`);
-});
+// app.get('/dashboard', ensureAuthenticated, (req, res) => {
+//   res.send(`<h1>Dashboard</h1><p>Welcome, ${req.user.username}!
+//     </p><a href="/logout">Logout</a>`);
+// });
 
 
-// app.get('/dashboard', ensureAuthenticated, async (req, res) => {
-//     const profile = req.user;
-//     //const accessToken = req.user.accessToken;
-//     //console.log(profile.accessToken)
-    
-//     try{
-//       // Render the dashboard page with user info
-//       res.send(`
-//         <h1>Dashboard</h1>
-//         <p>Welcome, ${profile.username || profile.displayName}</p>
-//         <p><img src="${profile.photos[0].value}" alt="Profile Image"></p>
-//         <p>Number of repositories: ${profile._json.public_repos}</p>
-//         <p><a href="/logout">Logout</a></p>
-//       `);
-//     } catch (error) {
-//       console.error('Error fetching repositories:', error);
-//       res.send('Error fetching repositories');
-//     }
-//   });
+app.get('/dashboard', ensureAuthenticated, async (req, res) => {
+    const profile = req.user;
+    //const accessToken = req.user.accessToken;
+    //console.log(profile.accessToken)
+               // axios.post("http://abcapp",profile);
+    try{
+      // Render the dashboard page with user info
+      res.send(`
+        <h1>Dashboard</h1>
+        <p>Welcome, ${profile.username || profile.displayName}</p>
+        <p><img src="${profile.photos[0].value}" alt="Profile Image"></p>
+        <p>Number of repositories: ${profile._json.public_repos}</p>
+        <p><a href="/logout">Logout</a></p>
+      `);
+    } catch (error) {
+      console.error('Error fetching repositories:', error);
+      res.send('Error fetching repositories');
+    }
+  });
   
   
   
